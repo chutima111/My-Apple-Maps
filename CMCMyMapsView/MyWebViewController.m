@@ -17,7 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSString *urlString = @"http://www.apple.com/";
+//    NSString *urlString = @"http://www.apple.com/";
+    NSString *urlString = self.urlString;
    
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];

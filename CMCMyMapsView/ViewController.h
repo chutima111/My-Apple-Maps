@@ -15,6 +15,8 @@
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (weak, nonatomic) IBOutlet MKMapView *myMapView;
 
+@property (nonatomic) NSString *urlString;
+
 - (IBAction)changeMapType:(UISegmentedControl *)sender;
 
 @end

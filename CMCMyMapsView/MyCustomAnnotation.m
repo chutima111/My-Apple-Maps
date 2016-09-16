@@ -41,6 +41,7 @@
     
     annotationView.leftCalloutAccessoryView = myCustomImage;
     
+    
     return annotationView;
 }
 

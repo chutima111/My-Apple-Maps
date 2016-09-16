@@ -30,7 +30,6 @@
     
     // Set Turn To Tech annotation
     CLLocationCoordinate2D turnToTechCoordinates = CLLocationCoordinate2DMake(40.741316, -73.989980);
-//    MyCustomAnnotation *turnToTechAnnotation = [[MyCustomAnnotation alloc]initWithTitle:@"Turn To Tech" Location:turnToTechCoordinates Image:@"turnToTech-icon"];
     
     MyCustomAnnotation *turnToTechAnnotation = [[MyCustomAnnotation alloc]initWithTitle:@"Turn To Tech" Location:turnToTechCoordinates Image:@"turnToTech-icon" URL:@"http://turntotech.io/"];
     
@@ -38,16 +37,16 @@
     
     // Add a few restaurant nearby
     CLLocationCoordinate2D shakeShackCoordinate = CLLocationCoordinate2DMake(40.741362, -73.988290);
-//    MyCustomAnnotation *shakeShackAnnotation = [[MyCustomAnnotation alloc]initWithTitle:@"Shake Shack" Location:shakeShackCoordinate Image:@"shakeShack"];
     
     MyCustomAnnotation *shakeShackAnnotation = [[MyCustomAnnotation alloc]initWithTitle:@"Shake Shack" Location:shakeShackCoordinate Image:@"shakeShack" URL:@"https://www.shakeshack.com/"];
     
     [self.myMapView addAnnotation:shakeShackAnnotation];
     
-//    CLLocationCoordinate2D katAndTheo = CLLocationCoordinate2DMake(40.740523, -73.990855);
-//    MyCustomAnnotation *katAndTheoAnnotation = [[MyCustomAnnotation alloc]initWithTitle:@"Kate & Theo" Location:katAndTheo Image:@"kateAndTheo"];
+    CLLocationCoordinate2D katAndTheoCoordinate = CLLocationCoordinate2DMake(40.740523, -73.990855);
     
-//    [self.myMapView addAnnotation:katAndTheoAnnotation];
+    MyCustomAnnotation *katAndTheoAnnotation = [[MyCustomAnnotation alloc]initWithTitle:@"Kate & Theo" Location:katAndTheoCoordinate Image:@"kateAndTheo" URL:@"http://katandtheo.com/#landing"];
+    
+    [self.myMapView addAnnotation:katAndTheoAnnotation];
    
     
 }
@@ -75,6 +74,8 @@
         
         if (annotationView == nil) {
             annotationView = myLocation.annotationView;
+            
+       
         }
         else {
             annotationView.annotation = annotation;
@@ -90,24 +91,17 @@
 
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
+  
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
         MyWebViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"MyWebViewController"];
-      // here we psss things here
+      // I want to pass the url here!!!
+    MyCustomAnnotation *annotationView = view.annotation;
+    vc.urlString = annotationView.urlString;
     
         [self.navigationController pushViewController:vc animated:YES];
 
 }
-
-//-(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
-//{
-//    
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-//    MyWebViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"MyWebViewController"];
-//  // here we psss things here
-//
-//    [self.navigationController pushViewController:vc animated:YES];
-//}
-
 
 
 - (IBAction)changeMapType:(UISegmentedControl *)sender {
