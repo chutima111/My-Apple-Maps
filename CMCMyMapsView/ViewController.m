@@ -11,6 +11,9 @@
 #import "MyWebViewController.h"
 
 @interface ViewController ()
+{
+    NSMutableArray *matchingItems;
+}
 
 
 @end
@@ -91,10 +94,10 @@
 
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
-  
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
         MyWebViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"MyWebViewController"];
+    
       // I want to pass the url here!!!
     MyCustomAnnotation *annotationView = view.annotation;
     vc.urlString = annotationView.urlString;
@@ -124,5 +127,41 @@
         default:
             break;
     }
+}
+
+- (IBAction)btnSearchPressed:(id)sender {
+    
+    [_txfSearch resignFirstResponder];
+    [_myMapView removeAnnotations:[_myMapView annotations]];
+    [self performSearch];
+    
+}
+
+-(void)performSearch
+{
+    MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc]init];
+    request.naturalLanguageQuery = self.txfSearch.text;
+    request.region = self.myMapView.region;
+    
+    matchingItems = [[NSMutableArray alloc]init];
+    
+    MKLocalSearch *search = [[MKLocalSearch alloc]initWithRequest:request];
+    
+    [search startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error) {
+        if (response.mapItems.count == 0) {
+            NSLog(@"No Matches");
+        }
+        else {
+            for (MKMapItem *item in response.mapItems) {
+                [matchingItems addObject:item];
+                
+                MyCustomAnnotation *annotation = [[MyCustomAnnotation alloc]initWithTitle:item.name Location:item.placemark.coordinate Image:nil URL:nil];
+                
+                [_myMapView addAnnotation:annotation];
+                
+            }
+        }
+    }];
+
 }
 @end

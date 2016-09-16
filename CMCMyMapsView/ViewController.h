@@ -17,7 +17,9 @@
 
 @property (nonatomic) NSString *urlString;
 
+@property (weak, nonatomic) IBOutlet UITextField *txfSearch;
 - (IBAction)changeMapType:(UISegmentedControl *)sender;
+- (IBAction)btnSearchPressed:(id)sender;
 
 @end
 

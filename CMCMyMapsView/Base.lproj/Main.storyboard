@@ -58,17 +58,36 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="A41FF8D3-B7BA-4866-AFFE-4AF839B4F5A8" translatesAutoresizingMaskIntoConstraints="NO" id="txP-ns-PV6">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="99483AAD-E193-414C-8757-C2F2C2B849D3" translatesAutoresizingMaskIntoConstraints="NO" id="txP-ns-PV6">
                                 <rect key="frame" x="25" y="69" width="100" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="0BL-iW-2Hh"/>
                                     <constraint firstAttribute="width" secondItem="txP-ns-PV6" secondAttribute="height" multiplier="3:1" id="ySd-Hd-MFv"/>
                                 </constraints>
                             </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Search here" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zNP-JK-HJj">
+                                <rect key="frame" x="170" y="69" width="260" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sT6-0A-PGa">
+                                <rect key="frame" x="445" y="69" width="49" height="30"/>
+                                <color key="backgroundColor" red="0.54086280766830896" green="1" blue="0.97112498384688994" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="Search"/>
+                                <connections>
+                                    <action selector="btnSearchPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xjO-yd-ABx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="zNP-JK-HJj" secondAttribute="trailing" constant="150" id="0nh-ib-OcY"/>
+                            <constraint firstItem="zNP-JK-HJj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2QC-zy-fH8"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="s5C-rZ-MTZ" secondAttribute="bottom" constant="50" id="4y7-cy-T1r"/>
+                            <constraint firstItem="zNP-JK-HJj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="150" id="6hH-dG-x1w"/>
+                            <constraint firstItem="sT6-0A-PGa" firstAttribute="leading" secondItem="zNP-JK-HJj" secondAttribute="trailing" constant="15" id="7hM-J4-C9f"/>
+                            <constraint firstItem="sT6-0A-PGa" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="5" id="8Hl-Lt-vZr"/>
                             <constraint firstItem="s5C-rZ-MTZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ARj-L0-XZ6"/>
                             <constraint firstItem="s5C-rZ-MTZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Bf2-Mz-p6v"/>
                             <constraint firstItem="s5C-rZ-MTZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="DaJ-ZF-lQY"/>
@@ -78,19 +97,24 @@
                             <constraint firstItem="txP-ns-PV6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="5" id="dhJ-GQ-CVE"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Ubf-3H-7fA" secondAttribute="bottom" id="gUb-x9-8yl"/>
                             <constraint firstItem="Ubf-3H-7fA" firstAttribute="top" secondItem="s5C-rZ-MTZ" secondAttribute="bottom" id="hi0-mF-WaK"/>
+                            <constraint firstItem="zNP-JK-HJj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="101" id="jRw-Bk-els"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ubf-3H-7fA" secondAttribute="trailing" id="ogi-sY-WPM"/>
+                            <constraint firstItem="zNP-JK-HJj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="5" id="y77-bX-cpM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="s5C-rZ-MTZ" secondAttribute="trailing" id="ydY-ae-sRa"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="Bf2-Mz-p6v"/>
                                 <exclude reference="DaJ-ZF-lQY"/>
+                                <exclude reference="2QC-zy-fH8"/>
+                                <exclude reference="jRw-Bk-els"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Map" id="uYX-9Q-sja"/>
                     <connections>
                         <outlet property="myMapView" destination="s5C-rZ-MTZ" id="xCL-xP-bYO"/>
+                        <outlet property="txfSearch" destination="zNP-JK-HJj" id="tOM-IR-p9Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -134,7 +158,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="A41FF8D3-B7BA-4866-AFFE-4AF839B4F5A8" width="125" height="36">
+        <image name="99483AAD-E193-414C-8757-C2F2C2B849D3" width="125" height="36">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
