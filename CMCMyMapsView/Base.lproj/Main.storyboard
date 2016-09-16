@@ -58,7 +58,7 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="6D74A478-D16B-4807-8206-C1E5990C128C" translatesAutoresizingMaskIntoConstraints="NO" id="txP-ns-PV6">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="A41FF8D3-B7BA-4866-AFFE-4AF839B4F5A8" translatesAutoresizingMaskIntoConstraints="NO" id="txP-ns-PV6">
                                 <rect key="frame" x="25" y="69" width="100" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="0BL-iW-2Hh"/>
@@ -134,7 +134,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="6D74A478-D16B-4807-8206-C1E5990C128C" width="125" height="36">
+        <image name="A41FF8D3-B7BA-4866-AFFE-4AF839B4F5A8" width="125" height="36">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

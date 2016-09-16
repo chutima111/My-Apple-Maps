@@ -14,8 +14,10 @@
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 @property (copy, nonatomic) NSString *title;
 @property (nonatomic) NSString *CalloutImageName;
+@property (nonatomic) NSString *urlString;
 
--(id)initWithTitle:(NSString *)newTitle Location:(CLLocationCoordinate2D)location Image:(NSString *)imageName;
+-(id)initWithTitle:(NSString *)newTitle Location:(CLLocationCoordinate2D)location Image:(NSString *)imageName URL:(NSString *)URLSting;
+
 -(MKAnnotationView *)annotationView;
 
 @end

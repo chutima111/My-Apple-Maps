@@ -10,7 +10,7 @@
 
 @implementation MyCustomAnnotation
 
--(id)initWithTitle:(NSString *)newTitle Location:(CLLocationCoordinate2D)location Image:(NSString *)imageName
+-(id)initWithTitle:(NSString *)newTitle Location:(CLLocationCoordinate2D)location Image:(NSString *)imageName URL:(NSString *)URLSting
 {
     self = [super init];
     
@@ -18,6 +18,7 @@
         _title = newTitle;
         _coordinate = location;
         _CalloutImageName = imageName;
+        _urlString = URLSting;
     }
     return self;
 }
@@ -29,10 +30,10 @@
     annotationView.enabled = YES;
     annotationView.canShowCallout = YES;
     annotationView.image = [UIImage imageNamed:@"pinkPin_icon"];
+    
     annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     
     // Add a image to the left side of the callout
-    
     UIImageView *myCustomImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:self.CalloutImageName]];
     
     myCustomImage.frame = CGRectMake(0.0, 0.0, 35.0, 35.0);
@@ -42,8 +43,6 @@
     
     return annotationView;
 }
-
-
 
 
 @end
