@@ -10,16 +10,18 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface ViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate>
+@interface ViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate>
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (weak, nonatomic) IBOutlet MKMapView *myMapView;
 
 @property (nonatomic) NSString *urlString;
 
-@property (weak, nonatomic) IBOutlet UITextField *txfSearch;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+
+
 - (IBAction)changeMapType:(UISegmentedControl *)sender;
-- (IBAction)btnSearchPressed:(id)sender;
+
 
 @end
 

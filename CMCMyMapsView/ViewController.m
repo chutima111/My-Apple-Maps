@@ -10,6 +10,7 @@
 #import "MyCustomAnnotation.h"
 #import "MyWebViewController.h"
 
+
 @interface ViewController ()
 {
     NSMutableArray *matchingItems;
@@ -31,6 +32,8 @@
     
     self.myMapView.delegate = self;
     
+    self.searchBar.delegate = self;
+    
     // Set Turn To Tech annotation
     CLLocationCoordinate2D turnToTechCoordinates = CLLocationCoordinate2DMake(40.741316, -73.989980);
     
@@ -50,8 +53,8 @@
     MyCustomAnnotation *katAndTheoAnnotation = [[MyCustomAnnotation alloc]initWithTitle:@"Kate & Theo" Location:katAndTheoCoordinate Image:@"kateAndTheo" URL:@"http://katandtheo.com/#landing"];
     
     [self.myMapView addAnnotation:katAndTheoAnnotation];
-   
     
+        
 }
 
 
@@ -129,18 +132,20 @@
     }
 }
 
-- (IBAction)btnSearchPressed:(id)sender {
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     
-    [_txfSearch resignFirstResponder];
-    [_myMapView removeAnnotations:[_myMapView annotations]];
-    [self performSearch];
-    
+    searchBar.text = @"";
 }
 
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder];
+    [_myMapView removeAnnotations:[_myMapView annotations]];
+    [self performSearch];
+}
 -(void)performSearch
 {
     MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc]init];
-    request.naturalLanguageQuery = self.txfSearch.text;
+    request.naturalLanguageQuery = self.searchBar.text;
     request.region = self.myMapView.region;
     
     matchingItems = [[NSMutableArray alloc]init];
@@ -155,13 +160,13 @@
             for (MKMapItem *item in response.mapItems) {
                 [matchingItems addObject:item];
                 
-                MyCustomAnnotation *annotation = [[MyCustomAnnotation alloc]initWithTitle:item.name Location:item.placemark.coordinate Image:nil URL:nil];
-                
+                MyCustomAnnotation *annotation = [[MyCustomAnnotation alloc]initWithTitle:item.name Location:item.placemark.coordinate Image:nil URL:item.url.absoluteString];
+            
                 [_myMapView addAnnotation:annotation];
                 
             }
         }
     }];
-
 }
+
 @end
